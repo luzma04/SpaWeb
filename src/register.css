@@ -90,4 +90,26 @@ input[type="password"]:focus, input[type="text"]:focus {
     height: 24rem;
     width: 24rem;
     margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00584A;
+    color: #fff;
+    border-radius: 3rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.custom-file-upload:hover {
+    background-color: #4a756b;
 }

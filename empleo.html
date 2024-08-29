@@ -21,7 +21,11 @@
                 <input type="email" id="email" name="email" required class="empleo-inputs">
                 <label for="mesage">Mensaje</label>
                 <textarea class="empleo-inputs" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Escribe tu mensaje aquí..."></textarea>
-                <p>-- Adjunta tu CV (.pdf)</p>
+                <div class="upload-cv">
+                    <img src="./src/assets/icono-upload.svg"/>
+                    <label for="cv-pic" class="file-upload-cv">Adjunta tu CV (.pdf)</label>
+                    <input type="file" id="cv-pic" name="cv-pic" accept="application/pdf" required>
+                </div>
             </form>
             <img src="./src/assets/logoVersion3.svg"/>
             <div class="enviar-boton-container">

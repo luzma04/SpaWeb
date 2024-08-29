@@ -73,3 +73,27 @@ textarea {
     color: #EDDED2;
     transition: background-color 0.3s, color 0.3s;
 }
+.upload-cv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+input[type="file"] {
+    display: none;
+}
+.upload-cv img{
+    height: 2rem;
+}
+.file-upload-cv {
+    display: inline-block;
+    padding: 1rem;
+    color: #00584A;
+    border-radius: 3rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+form .upload-cv label{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
