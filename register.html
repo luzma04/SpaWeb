@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/register.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentirse Bien</title>
+</head>
+<body>
+    <div id="header-root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <section class='register'>
+        
+        <div class='register-contenedor'>
+            <img src="./src/assets/iconoUser.svg" class="user-image">
+            <form action="" method="POST" id="register-form">
+                <label for="username">Nombre</label>
+                <input type="text" id="username" name="username" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+                
+            </form>
+            <div class="upload-pic">
+                
+            </div>
+            <div class="register-boton-container">
+                <input form="register-form" type="submit" value="Ingresar" class="boton-ingresar">
+            </div>  
+            
+        </div>
+    </section>
+
+    <div id="footer-root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

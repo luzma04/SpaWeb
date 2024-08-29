@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/empleo.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentirse Bien</title>
+</head>
+<body>
+    <div id="header-root"></div>
+    <script type="module" src="./src/main.jsx"></script>
+    <section class="empleo">
+        <h2>¡Trabajá con nosotros!</h2>
+        <div class="empleo-contenedor">
+            <form action="" method="POST" id="empleo-form">
+                <label for="name">Nombre</label>
+                <input class="empleo-inputs" type="text" id="name" name="name" required >
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required class="empleo-inputs">
+                <label for="mesage">Mensaje</label>
+                <textarea class="empleo-inputs" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Escribe tu mensaje aquí..."></textarea>
+                <p>-- Adjunta tu CV (.pdf)</p>
+            </form>
+            <img src="./src/assets/logoVersion3.svg"/>
+            <div class="enviar-boton-container">
+                <input type="submit" value="Enviar" class="boton-enviar" form="empleo-form">
+            </div>
+        </div>
+    </section>
+    <div id="footer-root"></div>
+    <script type="module" src="./src/main.jsx"></script>
+</body>
+</html>

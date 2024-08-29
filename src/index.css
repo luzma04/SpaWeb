@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Golfmind';
+    src: url('./assets/fonts/Golfmind.ttf') format('truetype');
+}
+html{
+    font-size: 62.5%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-feature-settings: "pnum" on, "lnum" on;
+    box-sizing: border-box;
+ 
+ }
+body {
+    font-family: 'Poppins', sans-serif;
+
+}
+.index h2 {
+    font-family: 'Golfmind', sans-serif;
+    font-size: 6rem;
+    font-weight: 400;
+}
+/*SECCION - HOME*/
+.seccion-home {
+    background-image: url('./assets/fondo.svg'); /* Ruta a la imagen de fondo */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;/* Ajusta la altura según la altura del header */
+    position: relative; /* Relativa para solapamiento */
+    z-index: 1; /* Asegura que esté detrás */
+    display: flex;
+    flex-direction: column; /* Alinea los elementos hijos verticalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: flex-end;
+}
+.seccion-home-contenedor{
+    color:#EDDED2;
+    text-align: center;
+    margin-right: 8rem;
+    margin-bottom: 2rem;
+}
+.seccion-home-parrafo{
+    font-size: 1.9rem; 
+    max-width: 46rem;
+    text-align: justify;
+}
+/*SECCION - QUIENES SOMOS*/
+.seccion-quienesSomos {
+    background-image: url('./assets/fondoQuienesSomos.svg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.seccion-quienesSomos-contenedor{
+    background-color: #EDDED2;
+    border-radius: 6rem;
+    max-width: 48rem; 
+    opacity: 70%;
+    color: #00584A;
+    text-align: justify;
+    margin-left: 6rem;
+}
+.seccion-quienesSomos-titulo {
+    text-align: center;
+}
+.seccion-quienesSomos-parrafo {
+    font-size: 1.9rem;
+    padding: 2.5rem;
+    padding-top: 0;
+
+}
+/*SECCION - SERVICIOS*/
+.seccion-servicios{
+    background-color: #F5C6B5;
+    min-height: 100vh;
+    position: relative;
+
+}
+.seccion-servicios-titulo{
+    color: #00584A;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2rem;
+
+}
+/*SECCION - UBICACION*/
+.seccion-ubicacion {
+    background-color: #00584A;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; /* Centra horizontalmente el contenedor */
+
+}
+.seccion-ubicacion-contenedor {
+    min-height: 30rem;
+    min-width: 60rem;
+    padding: 2rem;
+    background-color: #F5C6B5;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.seccion-ubicacion-titulo {
+    color: #F5C6B5;
+
+}
+.seccion-ubicacion-parrafo{
+    max-width: 20rem;
+    font-size: 2rem;
+    color: #00584A;
+    font-weight: 600;
+
+}
+
+/*FOOTER*/
+
