@@ -16,8 +16,11 @@ const servicios = [
 
 export function App() {
     const [services, setServices] = React.useState([]);
+    // const [servicesSelected, setServicesSelected] = React.useState([]);
+
 
     const addService = (service) => {
+        console.log(service);
         const serviceExists = services.some((s) => s.nombre === service.nombre);
         if (serviceExists) {
             const updatedServices = services.filter((s) => s.nombre !== service.nombre);
@@ -27,7 +30,16 @@ export function App() {
         }
     }
 
+
     const totalCost = services.reduce((acc, service) => acc + service.precio, 0);
+
+    const deleteService = (serviceKey) => {
+        let newServices = [...services];
+        const serviceIndex = newServices.findIndex((s) => s.nombre === serviceKey);
+        newServices.splice(serviceIndex, 1);
+        setServices(newServices);
+    }
+
 
     return (
         <>
@@ -46,6 +58,10 @@ export function App() {
                     <form method="post" id="formRequestServicios">
                         <h1 className="seccionTittle">Turnos</h1>
                         <ul>
+
+                            {services.map(sv =>
+                                <ServicioSelected key={sv.nombre} nombre={sv.nombre} precio={sv.precio} deleteServiceEvent={() => deleteService(sv.nombre)} />
+                            )}
                             {/* Puedes añadir aquí componentes como ServicioSelected */}
                             <li className="totalServiciosContainer">
                                 <h2>Total</h2>
@@ -82,14 +98,14 @@ function Servicio({ nombre, precio, url, addServiceEvent }) {
     )
 }
 
-function ServicioSelected() {
+function ServicioSelected({ nombre, precio, deleteServiceEvent }) {
     return (
         <li className="serviceItemSelected">
             <div className="infoItemSelected">
-                <h2>Servicio</h2>
-                <h3>$10000</h3>
+                <h2>{nombre}</h2>
+                <h3>${precio}</h3>
             </div>
-            <img src={deleteIcon} alt="delete icon" />
+            <img src={deleteIcon} alt="delete icon" onClick={deleteServiceEvent} />
         </li>
     )
 }

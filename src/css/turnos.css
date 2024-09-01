@@ -1,12 +1,14 @@
-#root{
+#root {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: #EDDED2;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
-    flex: 1 0 auto; /* Permite que el wrapper ocupe el espacio restante */
+    flex: 1 0 auto;
+    /* Permite que el wrapper ocupe el espacio restante */
     overflow-y: auto;
     justify-content: space-between;
     gap: 3rem;
@@ -14,7 +16,8 @@
     /* padding: 20px 0; */
 
 }
-.wrapper > div{
+
+.wrapper>div {
     padding: 3rem;
     text-align: center;
     display: flex;
@@ -23,31 +26,36 @@
     gap: 10px;
 
 }
-.wrapper > div > ul{
+
+.wrapper>div>ul {
     list-style: none;
-    
+
 }
-.wrapper > div  h1.seccionTittle{
+
+.wrapper>div h1.seccionTittle {
     font-size: clamp(2rem, 3vw, 3rem);
     color: #00584A;
 }
+
 /*#region Container para manejar los turnos   */
-.wrapper > .turnosSideManagementContainer{
+.wrapper>.turnosSideManagementContainer {
     width: 30%;
     background-color: #F5C6B5;
     max-width: 500px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    
+
 }
-.wrapper > .turnosSideManagementContainer ul{
+
+.wrapper>.turnosSideManagementContainer ul {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
     width: 100%;
 }
-.wrapper > .turnosSideManagementContainer  ul li.serviceItemSelected{
+
+.wrapper>.turnosSideManagementContainer ul li.serviceItemSelected {
     display: flex;
     background-color: #EDDED2;
     padding: 10px 20px;
@@ -59,15 +67,21 @@
     color: #00584A;
     font-size: clamp(10px, 1vw, 14px);
 }
-.wrapper > .turnosSideManagementContainer  ul li.serviceItemSelected>.infoItemSelected{
+
+.wrapper>.turnosSideManagementContainer ul li.serviceItemSelected>img {
+    cursor: pointer;
+}
+
+.wrapper>.turnosSideManagementContainer ul li.serviceItemSelected>.infoItemSelected {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
 
 }
+
 /* #region Estilos calendario */
-.custom-calendar{
+.custom-calendar {
     background-color: #EDDED2 !important;
     box-shadow: unset !important;
     display: flex;
@@ -75,25 +89,30 @@
     justify-content: center;
     padding: 10px 0;
 }
-.custom-calendar .rmdp-week-day{
+
+.custom-calendar .rmdp-week-day {
     color: #00584A;
     font-size: clamp(10px, 1vw, 14px);
 }
-.custom-calendar .rmdp-selected > span{
-    background-color: #F5C6B5!important;
-    color: #00584A!important;
+
+.custom-calendar .rmdp-selected>span {
+    background-color: #F5C6B5 !important;
+    color: #00584A !important;
 }
-.custom-calendar .rmdp-day:not(.rmdp-disabled,.rmdp-day-hidden) > span:hover{
-    background-color: #f5c6b581!important;
-    color: #005849b0!important;
+
+.custom-calendar .rmdp-day:not(.rmdp-disabled, .rmdp-day-hidden)>span:hover {
+    background-color: #f5c6b581 !important;
+    color: #005849b0 !important;
 }
+
 /* #endregion */
-#formRequestServicios{
+#formRequestServicios {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.totalServiciosContainer{
+
+.totalServiciosContainer {
     display: flex;
     background-color: #EDDED2;
     padding: 10px 20px;
@@ -106,10 +125,12 @@
     font-size: clamp(10px, 1vw, 14px);
     border: 2px solid #00584A;
 }
-.calendarioWrapper{
+
+.calendarioWrapper {
     width: 100%;
 }
-.leyendaCalendarioWrapper{
+
+.leyendaCalendarioWrapper {
     /* background-color: #EDDED2; */
     padding: 20px;
     width: 90%;
@@ -118,14 +139,16 @@
     color: #00584A;
     font-size: clamp(10px, 1.2vw, 18px);
 }
-.wrapperSubmitForm{
+
+.wrapperSubmitForm {
     display: flex;
     width: 90%;
     align-items: center;
     justify-content: center;
     padding: 10px;
 }
-#buttonSubmitForm{
+
+#buttonSubmitForm {
     background-color: #00584A;
     color: #EDDED2;
     padding: 6px 20px;
@@ -137,25 +160,29 @@
     font-family: "Poppins";
 
 }
+
 /* #endregion */
 
 /* #region Container de la lista de turnos */
-.wrapper > .listServiciosContainer{
+.wrapper>.listServiciosContainer {
     width: 70%;
 }
-.wrapper > .listServiciosContainer > ul{
+
+.wrapper>.listServiciosContainer>ul {
     display: flex;
     gap: 3rem;
 }
-.wrapper > .listServiciosContainer > ul >li.serviceItem{
+
+.wrapper>.listServiciosContainer>ul>li.serviceItem {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #00584A;
     font-size: clamp(10px, 1vw, 14px);
+    cursor: pointer;
 }
 
-.wrapper > .listServiciosContainer > ul >li.serviceItem > .backgroundContainer{
+.wrapper>.listServiciosContainer>ul>li.serviceItem>.backgroundContainer {
     border: 1px solid #00584A;
     border-radius: 10px;
     width: 12vw;
@@ -163,4 +190,5 @@
     max-width: 250px;
     max-height: 250px;
 }
+
 /* #endregion */
