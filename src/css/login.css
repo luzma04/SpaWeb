@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Golfmind';
-    src: url('./assets/fonts/Golfmind.ttf') format('truetype');
+    src: url('/src/assets/fonts/Golfmind.ttf') format('truetype');
 }
 html{
     font-size: 62.5%;

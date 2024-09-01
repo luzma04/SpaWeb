@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Golfmind';
-    src: url('./assets/fonts/Golfmind.ttf') format('truetype');
+    src: url('/src/assets/fonts/Golfmind.ttf') format('truetype');
 }
 html{
     font-size: 62.5%;
@@ -22,7 +22,7 @@ body {
 }
 /*SECCION - HOME*/
 .seccion-home {
-    background-image: url('./assets/fondo.svg'); /* Ruta a la imagen de fondo */
+    background-image: url('/src/assets/fondo.svg'); /* Ruta a la imagen de fondo */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -47,7 +47,7 @@ body {
 }
 /*SECCION - QUIENES SOMOS*/
 .seccion-quienesSomos {
-    background-image: url('./assets/fondoQuienesSomos.svg'); 
+    background-image: url('/src/assets/fondoQuienesSomos.svg'); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

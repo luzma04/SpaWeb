@@ -1,5 +1,5 @@
-import '../header_footer.css';
-import logo from '../assets/logo.svg'; // Importa la imagen del logo
+import 'css/header_footer.css';
+import logo from 'icons/logo.svg'; // Importa la imagen del logo
 
 export function Header() {
     return (
@@ -13,7 +13,7 @@ export function Header() {
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">Noticias</a></li>
                 <li><a href="empleo.html">Empleo</a></li>
-                <li><a href="#">Turnos</a></li>
+                <li><a href="turnos.html">Turnos</a></li>
                 <li><a href="login.html">Login</a></li>
             </ul>
         </nav>

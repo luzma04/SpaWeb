@@ -1,9 +1,9 @@
-import '../header_footer.css';
-import logo from '../assets/logoVersion2.svg';
-import iconoInsta from '../assets/iconoInstagram.svg'
-import iconoFacebook from '../assets/iconoFacebook.svg'
-import iconoTiktok from '../assets/iconoTiktok.svg'
-import iconoMail from '../assets/iconoMail.svg'
+import 'css/header_footer.css';
+import logo from 'icons/logoVersion2.svg';
+import iconoInsta from 'icons/iconoInstagram.svg'
+import iconoFacebook from 'icons/iconoFacebook.svg'
+import iconoTiktok from 'icons/iconoTiktok.svg'
+import iconoMail from 'icons/iconoMail.svg'
 
 export function Footer() {
     return (
