@@ -104,15 +104,34 @@ body {
 
 }
 .seccion-ubicacion-contenedor {
-    min-height: 30rem;
+    
     min-width: 60rem;
+    /* width: 50%; */
+    height: 50vh;
     padding: 2rem;
+    gap: 2rem;
     background-color: #F5C6B5;
-    border-radius: 3rem;
+    border-radius: 2rem;
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: space-between; */
     align-items: center;
 }
+.seccion-ubicacion-contenedor > div{
+    height: 100%;
+}
+
+.ubicacion-contenedor{
+    border: 2px solid #ffffffc8;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0px 3px 27px 0px rgba(217, 217, 217, 0.86);
+}
+
+.ubicacion-contenedor > #ubicacionMap{
+    width: 100%;
+    height: 100%;
+}
+
 .seccion-ubicacion-titulo {
     color: #F5C6B5;
 
