@@ -14,7 +14,7 @@ export function Empleo() {
 
     const enviar = async (data) => {
         try {
-            // Para enviar archivos hay que configurar permisos raros, lo hago después
+            // PARA ENVIAR LOS ARCHIVOS HAY QUE CONFIGURAR UNOS PERMISOS, LO HAGO DPS
             /* const cvFile = data.cv[0];
             const storageRef = ref(storage, `cvs/${cvFile.name}`);
             const snapshot = await uploadBytes(storageRef, cvFile);
@@ -30,7 +30,7 @@ export function Empleo() {
 
             setMensaje('¡Solicitud enviada correctamente!');
             setMensajeError('');
-            // Limpiar el formulario si es necesario
+           
             setValue('name', '');
             setValue('email', '');
             setValue('message', '');
