@@ -1,5 +1,5 @@
 import 'css/header_footer.css';
-import logo from 'icons/logo.svg'; // Importa la imagen del logo
+import logo from 'icons/logo.svg';
 
 export function Header() {
     return (

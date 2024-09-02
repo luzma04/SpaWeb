@@ -1,6 +1,6 @@
-import { createRoot } from 'react-dom/client'
-import {Header} from './components/core/Header.jsx'
-import {Footer} from './components/core/Footer.jsx'
+import { createRoot } from 'react-dom/client';
+import { Header } from './components/core/Header.jsx';
+import { Footer } from './components/core/Footer.jsx';
 
 
 
