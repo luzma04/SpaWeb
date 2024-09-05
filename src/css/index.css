@@ -28,21 +28,15 @@ body {
 /*SECCION - HOME*/
 .seccion-home {
     background-image: url('/src/assets/fondo.svg');
-    /* Ruta a la imagen de fondo */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 100vh;
-    /* Ajusta la altura según la altura del header */
     position: relative;
-    /* Relativa para solapamiento */
     z-index: 1;
-    /* Asegura que esté detrás */
     display: flex;
     flex-direction: column;
-    /* Alinea los elementos hijos verticalmente */
     justify-content: center;
-    /* Centra el contenido verticalmente */
     align-items: flex-end;
 }
 
@@ -98,19 +92,18 @@ body {
 
 /*SECCION - SERVICIOS*/
 .seccion-servicios {
-    background-color: #F5C6B5;
+    background-color: #EDDED2;
     min-height: 100vh;
-    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 }
 
 .seccion-servicios-titulo {
     color: #00584A;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 2rem;
-
 }
 
 /*SECCION - UBICACION*/
@@ -191,4 +184,42 @@ body {
 
 }
 
-/*FOOTER*/
+.seccion-ubicacion-parrafo {
+    max-width: 20rem;
+    font-size: 2rem;
+    color: #00584A;
+    font-weight: 600;
+
+}
+
+.card-container {
+    background-color: #F5C6B5;
+    padding: 2rem;
+    min-height: 25rem;
+    min-width: 20rem;
+    border-top-left-radius: 8rem;
+    border-top-right-radius: 8rem;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card-image {
+    min-height: 16rem;
+    min-width: 14rem;
+    background-color: #00584A;
+    padding: 2rem;
+    border-top-left-radius: 7rem;
+    border-top-right-radius: 7rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.card-title {
+    color: #00584A;
+    font-size: 2rem;
+}
