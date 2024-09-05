@@ -171,6 +171,7 @@
 .wrapper>.listServiciosContainer>ul {
     display: flex;
     gap: 3rem;
+    flex-wrap: wrap;
 }
 
 .wrapper>.listServiciosContainer>ul>li.serviceItem {
@@ -180,6 +181,7 @@
     color: #00584A;
     font-size: clamp(10px, 1vw, 14px);
     cursor: pointer;
+    width: 12vw;
 }
 
 .wrapper>.listServiciosContainer>ul>li.serviceItem>.backgroundContainer {

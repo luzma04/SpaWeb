@@ -9,12 +9,12 @@ import deleteIcon from "icons/delete_icon.png";
 import "css/turnos.css";
 
 const servicios = [
-    { nombre: "Corte de pelo", precio: 10000, url: "https://www.google.com" },
-    { nombre: "Baño", precio: 20000, url: "https://www.google.com" },
-    { nombre: "Corte de uñas", precio: 30000, url: "https://www.google.com" },
-    { nombre: "Lavado de auto", precio: 15000, url: "https://www.google.com" },
-    { nombre: "Masaje", precio: 25000, url: "https://www.google.com" },
-    { nombre: "Manicura", precio: 35000, url: "https://www.google.com" }
+    { nombre: "Masajes con piedras calientes", precio: 10000, url: "https://www.google.com" },
+    { nombre: "Sauna Seco", precio: 20000, url: "https://www.google.com" },
+    { nombre: "Depilación facial", precio: 30000, url: "https://www.google.com" },
+    { nombre: "Anti-stress", precio: 15000, url: "https://www.google.com" },
+    { nombre: "Circulatorios", precio: 25000, url: "https://www.google.com" },
+    { nombre: "Limpieza profunda + Hidratación", precio: 35000, url: "https://www.google.com" }
 ];
 
 export function App() {

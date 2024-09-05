@@ -1,50 +1,72 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="icons/logo.svg" />
-    <link rel="stylesheet" href="/src/css/index.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sentirse Bien</title>
-  </head>
-  <body class="index">
-    <div id="header-root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <main class="seccion-home">
-      <div class="seccion-home-contenedor">
-        <h2 class="seccion-home-titulo">Spa & Beauty</h2>
-        <p class="seccion-home-parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. 
-        </p>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="icons/logo.svg" />
+  <link rel="stylesheet" href="/src/css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentirse Bien</title>
+</head>
+
+<body class="index">
+  <div id="header-root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <main class="seccion-home">
+    <div class="seccion-home-contenedor">
+      <h2 class="seccion-home-titulo">Spa & Beauty</h2>
+      <p class="seccion-home-parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie,
+        dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut
+        interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
+      </p>
+    </div>
+  </main>
+
+  <section class="seccion-quienesSomos">
+    <div class="seccion-quienesSomos-contenedor">
+      <h2 class="seccion-quienesSomos-titulo">¿Quienes Somos?</h2>
+      <p class="seccion-quienesSomos-parrafo">Borem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin
+        lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion-servicios">
+    <h2 class="seccion-servicios-titulo">Servicios</h2>
+  </section>
+
+  <section class="seccion-ubicacion">
+    <h2 class="seccion-ubicacion-titulo">¿Donde encontrarnos?</h2>
+    <div class="seccion-ubicacion-contenedor">
+      <div class="ubicacion-contenedor">
+        <iframe id="ubicacionMap"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.5827771762033!2d-58.98158552514482!3d-27.451110615913358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450cf0c80be0d3%3A0xc9f9278c74810912!2sUTN%20-%20Facultad%20Regional%20Resistencia!5e0!3m2!1ses!2sar!4v1725302757160!5m2!1ses!2sar"
+          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-    </main>
-
-    <section class="seccion-quienesSomos">
-      <div class="seccion-quienesSomos-contenedor">
-        <h2 class="seccion-quienesSomos-titulo">¿Quienes Somos?</h2>
-        <p class="seccion-quienesSomos-parrafo">Borem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. 
-        </p>
-      </div>
-    </section>
-
-    <section class="seccion-servicios">
-      <h2 class="seccion-servicios-titulo">Servicios</h2>
-    </section>
-
-    <section class="seccion-ubicacion">
-      <h2 class="seccion-ubicacion-titulo">¿Donde encontrarnos?</h2>
-      <div class="seccion-ubicacion-contenedor">
-        <div class="ubicacion-contenedor">
-          <iframe id="ubicacionMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.5827771762033!2d-58.98158552514482!3d-27.451110615913358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450cf0c80be0d3%3A0xc9f9278c74810912!2sUTN%20-%20Facultad%20Regional%20Resistencia!5e0!3m2!1ses!2sar!4v1725302757160!5m2!1ses!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="ubicacion-parrafo-contenedor">
+        <div class="parrafo_wrapper">
+          <p>De Lunes a Sábado: De 8:30 a 12:30hs y de 16:00 a 20:00hs</p>
         </div>
-        <div class="ubicacion-parrafo-contenedor">
-          <p class="seccion-ubicacion-parrafo">De Lunes a Sábado: De 8:30 a 12:30hs y de 16:00 a 20:00hs</p>
+
+        <div class="redes_sociales_icons_wrapper">
+          <a href="https://www.facebook.com/" target="_blank" class="redes_sociales_icon">
+            <img src="../src/assets/icons/facebook_icon.png" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" class="redes_sociales_icon">
+            <img src="../src/assets/icons/instagram_icon.png" alt="Instagram">
+          </a>
+          <a href="https://www.tiktok.com/" target="_blank" class="redes_sociales_icon">
+            <img src="../src/assets/icons/tiktok_icon.png" alt="Twitter">
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <div id="footer-root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <div id="footer-root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
