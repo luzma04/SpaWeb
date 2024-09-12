@@ -55,6 +55,14 @@
     width: 100%;
 }
 
+.wrapper>.turnosSideManagementContainer ul>.warningMessage {
+    /* background-color: #EDDED2; */
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #0058498e;
+    font-size: clamp(12px, 1.2vw, 18px);
+}
+
 .wrapper>.turnosSideManagementContainer ul li.serviceItemSelected {
     display: flex;
     background-color: #EDDED2;
@@ -110,6 +118,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .totalServiciosContainer {
@@ -126,15 +135,24 @@
     border: 2px solid #00584A;
 }
 
-.calendarioWrapper {
+.selectHorarioFechaWrapper {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
 }
 
-.leyendaCalendarioWrapper {
-    /* background-color: #EDDED2; */
-    padding: 20px;
+.calendarioWrapper,
+.horarioWrapper {
+    width: 70%;
+    margin-top: 1rem;
+}
+
+
+.leyendaCalendarioWrapper,
+.leyendaServiciosSelccionadosWrapper {
     width: 90%;
-    gap: 1rem;
     border-radius: 8px;
     color: #00584A;
     font-size: clamp(10px, 1.2vw, 18px);
