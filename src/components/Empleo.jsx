@@ -30,7 +30,7 @@ export function Empleo() {
 
             setMensaje('¡Solicitud enviada correctamente!');
             setMensajeError('');
-           
+
             setValue('name', '');
             setValue('email', '');
             setValue('message', '');
@@ -48,23 +48,23 @@ export function Empleo() {
             <div className="empleo-contenedor">
                 <form id="empleo-form" onSubmit={handleSubmit(enviar)}>
                     <label htmlFor="name">Nombre</label>
-                    <input className="empleo-inputs" type="text" id="name" name="name" required {...register("name")}/>
-                    
+                    <input className="empleo-inputs" type="text" id="name" name="name" required {...register("name")} />
+
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" required className="empleo-inputs" {...register("email")}/>
-                    
+                    <input type="email" id="email" name="email" required className="empleo-inputs" {...register("email")} />
+
                     <label htmlFor="mensaje">Mensaje</label>
                     <textarea className="empleo-inputs" id="mensaje" name="mensaje" rows="4" cols="50" placeholder="Escribe tu mensaje aquí..." {...register("message")}></textarea>
-                    
+
                     <div className="upload-cv">
                         <img src={uploadIcon} alt="Upload Icon" />
                         <label htmlFor="cv-pic" className="file-upload-cv">Adjunta tu CV (.pdf)</label>
-                        <input type="file" id="cv-pic" name="cv-pic" accept="application/pdf" required /*{...register("cv")}*//>
+                        <input type="file" id="cv-pic" name="cv-pic" accept="application/pdf" required /*{...register("cv")}*/ />
                     </div>
                 </form>
-                
+
                 <img src={logoVersion3} alt="Company Logo" />
-                
+
                 <div className="enviar-boton-container">
                     <input type="submit" value="Enviar" className="boton-enviar" form="empleo-form" />
                 </div>
