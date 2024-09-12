@@ -1,5 +1,9 @@
 import { Header } from "../core/Header.jsx";
 import { DateCalendarMultipleSelect } from "../core/Calendar.jsx";
+import { HorarioSelect } from "./HorarioSelect.jsx";
+
+import Select from 'react-select'
+
 import React from "react";
 
 // Import the icons files
@@ -16,6 +20,34 @@ const servicios = [
     { nombre: "Circulatorios", precio: 25000, url: "https://www.google.com" },
     { nombre: "Limpieza profunda + Hidratación", precio: 35000, url: "https://www.google.com" }
 ];
+let horariosOptions = [
+    { value: '08:00', label: '08:00' },
+    { value: '10:00', label: '10:00' },
+    { value: '12:00', label: '12:00' },
+    { value: '14:00', label: '14:00' },
+    { value: '16:00', label: '16:00' },
+    { value: '18:00', label: '18:00' },
+    { value: '20:00', label: '20:00' },
+    { value: '22:00', label: '22:00' },
+
+]
+
+const horariosOcupados = [
+    '08:00',
+    '10:00',
+    '20:00',
+    '22:00'
+];
+
+horariosOptions = horariosOptions.map((option) => {
+    if (horariosOcupados.includes(option.value)) {
+        return { ...option, isDisabled: true };
+    }
+    return option;
+});
+
+
+
 
 export function App() {
     const [services, setServices] = React.useState([]);
@@ -72,13 +104,18 @@ export function App() {
                             </li>
                         </ul>
                         <div className="leyendaCalendarioWrapper">
-                            <h3>Seleccioná tus días disponibles</h3>
+                            <h3>Seleccioná el dia y horario</h3>
+                        </div>
+                        <div className="horarioWrapper">
+                            <HorarioSelect
+                                options={horariosOptions}
+                            />
                         </div>
                         <div className="calendarioWrapper">
                             <DateCalendarMultipleSelect />
                         </div>
                         <div className="wrapperSubmitForm">
-                            <input id="buttonSubmitForm" type="submit" value="Consultar servicios" />
+                            <input id="buttonSubmitForm" type="submit" value="Realizar reserva" />
                         </div>
                     </form>
                 </div>

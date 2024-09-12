@@ -2,28 +2,38 @@
     font-family: 'Golfmind';
     src: url('../assets/fonts/Golfmind.ttf') format('truetype');
 }
-html{
+
+html {
     font-size: 62.5%;
 }
+
 * {
     margin: 0;
     padding: 0;
     font-feature-settings: "pnum" on, "lnum" on;
     box-sizing: border-box;
- 
- }
+
+}
+
 body {
     font-family: 'Poppins', sans-serif;
 }
+
 /*HEADER*/
 .logo-title {
     display: flex;
     align-items: center;
 }
+
 .logo {
-    height: 5rem; 
+    height: 5rem;
     padding-left: 1.5rem;
 }
+
+header>a {
+    text-decoration: none;
+}
+
 header {
     background-color: #EDDED2;
     padding: 2rem 0;
@@ -32,38 +42,44 @@ header {
     align-items: center;
     width: 100%;
 }
-header h1{
+
+header h1 {
     font-family: 'Golfmind', sans-serif;
     padding-left: 20px;
     color: #00584A;
     font-size: 36px;
     font-weight: 400;
 }
+
 nav ul {
     list-style-type: none;
     display: flex;
     justify-content: flex-end;
-    padding-right: 3rem; 
+    padding-right: 3rem;
 }
+
 nav ul li {
     margin: 0 1rem;
-    
+
 }
+
 nav ul li a {
     text-decoration: none;
     color: #00584A;
     font-weight: 400;
     font-size: 1.8rem;
-    padding: 0.5rem 2rem; 
+    padding: 0.5rem 2rem;
 }
-nav ul li:last-child a { 
+
+nav ul li:last-child a {
     background-color: #F5C6B5;
     color: #00584A;
     border-radius: 30px;
-    padding: 5px 20px; 
+    padding: 5px 20px;
     transition: background-color 0.3s, color 0.3s;
-    font-weight: 700; 
+    font-weight: 700;
 }
+
 nav ul li a:last-child:hover {
     background-color: #00584A;
     border-radius: 30px;
@@ -71,54 +87,65 @@ nav ul li a:last-child:hover {
     color: #EDDED2;
     transition: background-color 0.3s, color 0.3s;
 }
+
 /*FOOTER*/
-.footer{
+.footer {
     background-color: #00584A;
     display: flex;
     column-gap: 27rem;
     align-items: center;
-    color:#F5C6B5;
+    color: #F5C6B5;
     padding: 2rem 5rem 2rem 5rem;
     border-top: 0.1rem solid;
 }
-.footer-logo{
+
+.footer-logo {
     height: 10rem;
 }
-.footer-section{
+
+.footer-section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.footer-section:nth-child(3){
+
+.footer-section:nth-child(3) {
     margin-left: auto;
-} 
-.footer-section h3{
+}
+
+.footer-section h3 {
     font-size: 1.6rem;
     margin-top: 1rem;
 }
-.social-icons a img{
+
+.social-icons a img {
     height: 5rem;
     padding: 1rem;
 }
-.footer-section-mail{
+
+.footer-section-mail {
     display: flex;
     flex-direction: row;
     font-size: 1.5rem;
 }
-.footer-section-mail img{
+
+.footer-section-mail img {
     height: 2rem;
     margin-right: 0.3rem;
 }
-.footer-links{
+
+.footer-links {
     list-style-type: none;
     font-size: 1.5rem;
 }
-.footer div ul li{
+
+.footer div ul li {
     margin-bottom: 1rem;
     text-align: right;
 }
-.footer-links-elemento{
+
+.footer-links-elemento {
     text-decoration: none;
     font-weight: 400;
-    color:#F5C6B5 ;
+    color: #F5C6B5;
 }
