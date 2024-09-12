@@ -1,6 +1,10 @@
 import { Header } from "../core/Header.jsx";
 import { DateCalendarMultipleSelect } from "../core/Calendar.jsx";
 import { HorarioSelect } from "./HorarioSelect.jsx";
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from "../../credentials.js";
+import { useForm } from 'react-hook-form';
+
 
 import Select from 'react-select'
 
@@ -51,6 +55,8 @@ horariosOptions = horariosOptions.map((option) => {
 
 export function App() {
     const [services, setServices] = React.useState([]);
+    const { register, handleSubmit, setValue } = useForm();
+
     // const [servicesSelected, setServicesSelected] = React.useState([]);
 
 
@@ -75,6 +81,19 @@ export function App() {
         setServices(newServices);
     }
 
+    const submitReserva = async (data) => {
+        try {
+            const reservaRef = collection(db, "reservas");
+            await addDoc(reservaRef, data);
+
+            alert('¡Reserva realizada correctamente!');
+
+            setValue('horario', '');
+            setValue('fecha', '');
+        } catch (error) {
+            console.error("Error al realizar la reserva: ", error);
+        }
+    }
 
     return (
         <>
@@ -90,7 +109,7 @@ export function App() {
                 </div>
 
                 <div className="turnosSideManagementContainer">
-                    <form method="post" id="formRequestServicios">
+                    <form method="post" id="formRequestServicios" onSubmit={handleSubmit(submitReserva)}>
                         <h1 className="seccionTittle">Turnos</h1>
                         <ul>
 
