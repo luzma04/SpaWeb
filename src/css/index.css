@@ -27,31 +27,39 @@ body {
 
 /*SECCION - HOME*/
 .seccion-home {
-    background-image: url('/src/assets/fondo.svg');
+    background-image: url('/src/assets/fondoInicio.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 100vh;
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
 }
 
 .seccion-home-contenedor {
-    color: #EDDED2;
+    background-color: #EDDED2;
+    padding: 2.5rem;
+    border-radius: 10rem;
+    max-width: 50%;
+    max-height: fit-content;
+    opacity: 70%;
+    color: #00584A;
+    text-align: justify;
+    margin-left: 6rem;
+}
+
+.seccion-home-titulo {
     text-align: center;
-    margin-right: 8rem;
-    margin-bottom: 2rem;
 }
 
 .seccion-home-parrafo {
     font-size: 1.9rem;
-    max-width: 46rem;
-    text-align: justify;
+    padding: 2.5rem;
+    padding-top: 0;
+
 }
+
 
 /*SECCION - QUIENES SOMOS*/
 .seccion-quienesSomos {
@@ -60,34 +68,24 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 100vh;
-    margin-top: -50px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    position: relative;
+    align-items: center;
+    column-gap: 15rem;
 }
 
 .seccion-quienesSomos-contenedor {
-    background-color: #EDDED2;
-    border-radius: 6rem;
-    max-width: 48rem;
-    opacity: 70%;
-    color: #00584A;
-    text-align: justify;
-    margin-left: 6rem;
-}
-
-.seccion-quienesSomos-titulo {
+    color: #EDDED2;
     text-align: center;
 }
 
 .seccion-quienesSomos-parrafo {
     font-size: 1.9rem;
-    padding: 2.5rem;
-    padding-top: 0;
-
+    max-width: 46rem; 
+    text-align: justify;
 }
 
 /*SECCION - SERVICIOS*/
@@ -95,6 +93,9 @@ body {
     background-color: #EDDED2;
     min-height: 100vh;
     padding: 1rem;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
 }
 
 .seccion-servicios-titulo {
