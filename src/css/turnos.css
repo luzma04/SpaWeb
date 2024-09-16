@@ -151,6 +151,9 @@
     max-width: 340px;
     margin-top: 1rem;
 }
+.horarioWrapper *{
+    font-size: clamp(12px, 1.1vw, 16px);
+}
 
 
 .leyendaCalendarioWrapper,
@@ -196,29 +199,51 @@
 
 .wrapper>.listServiciosContainer>ul {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     flex-wrap: wrap;
     width: 100%;
 }
 
 .wrapper>.listServiciosContainer>ul>li.serviceItem {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    color: #EDDED2;
-    font-size: clamp(10px, 1vw, 14px);
-    cursor: pointer;
+    color: #00584A;
     width: 80%;
     padding: 10px 15px;
     border-radius: 8px;
+    border: 2px solid #00584A;
+    transition: all ease 0.1s;
+}
+.wrapper>.listServiciosContainer>ul>li.serviceItem.selected{
     background-color: #00584A;
+    color: #EDDED2;
+}
+.wrapper>.listServiciosContainer>ul>li.serviceItem > .buttonAdd{
+    background-color: #00584A;
+    color: #EDDED2;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-size: clamp(10px, 1vw, 15px);
+    cursor: pointer;
+    outline: none;
+    border-color: transparent;
+    font-family: "Poppins";
+}
+.wrapper>.listServiciosContainer>ul>li.serviceItem.selected > .buttonAdd{
+    background-color: #EDDED2;
+    color: #00584A;
 }
 .wrapper>.listServiciosContainer>ul>li.serviceItem>.coreInfoContainer{
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
     width: 100%;
 }
+.wrapper>.listServiciosContainer>ul>li.serviceItem>.coreInfoContainer > .containerInfo{
+    text-align: start;
+    width: 20%;
+}
+
 
 .wrapper>.listServiciosContainer>ul>li.serviceItem>.backgroundContainer {
     border: 1px solid #00584A;
@@ -230,3 +255,12 @@
 }
 
 /* #endregion */
+
+.swal2-popup *{
+    font-size: clamp(14px, 1.1vw, 17px) !important;
+
+}
+
+.swal2-popup #swal2-title{
+    font-size: clamp(16px, 1.6vw, 22px) !important;
+}

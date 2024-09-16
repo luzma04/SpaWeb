@@ -18,6 +18,7 @@ export function Login() {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
             // console.log('User signed in:', userCredential.user);
+            window.location.href = 'index.html';
         } catch (error) {
             // console.error('Error signing in:', error.message);//crear alert
         }

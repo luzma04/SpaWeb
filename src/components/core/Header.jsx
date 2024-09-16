@@ -78,7 +78,7 @@ export function Header() {
                             {showMenu && (
                                 <ul className="user-menu">
                                     {usuario.rangoUser === "Cliente" && (
-                                        <li><a href="#">Mis reservas</a></li>
+                                        <li><a href="misReservas-cliente.html">Mis reservas</a></li>
                                     )}
                                     <li>
                                         <button id="buttonLogout" onClick={() => handleSignOut()}>Cerrar sesión</button>

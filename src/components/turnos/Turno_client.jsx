@@ -57,6 +57,8 @@ export function App() {
     // Verificar si hay un usuario logueado
     const auth = getAuth(appFirebase);
     const user = auth.currentUser;
+    // console.log(user);
+
     const [servicios, setServicios] = useState([]); // Manejar los servicios
     const [services, setServices] = useState([]); // Manejar los servicios seleccionados
     
@@ -94,9 +96,11 @@ export function App() {
         const serviceExists = services.some((s) => s.nombre === service.nombre);
         if (serviceExists) {
             const updatedServices = services.filter((s) => s.nombre !== service.nombre);
+            
             setServices(updatedServices);
         } else {
-            setServices([...services, service]);
+            
+            setServices([...services, { ...service, isSelected: true }]);
         }
     }
 
@@ -198,7 +202,7 @@ export function App() {
                     <h1 className="seccionTittle">Servicios</h1>
                     <ul>
                         {servicios.map(sv =>
-                            <Servicio key={sv.nombre} nombre={sv.nombre} precio={sv.precio} addServiceEvent={addService} />
+                            <Servicio key={sv.nombre} isSelected={services.some(s => s.nombre === sv.nombre)} profesional ={sv.profesional} nombre={sv.nombre} precio={sv.precio} addServiceEvent={addService} />
                         )}
                     </ul>
                 </div>
@@ -251,12 +255,11 @@ export function App() {
     );
 }
 
-function Servicio({ nombre, precio, addServiceEvent }) {
+function Servicio({ nombre, precio, profesional,isSelected ,addServiceEvent }) {
+    console.log(isSelected)
     return (
-        <li className="serviceItem" onClick={() => addServiceEvent({ nombre, precio })}>
-            {/* <div className="backgroundContainer">
-                <p>{url}</p>
-            </div> */}
+        <li className={`serviceItem ${isSelected ? "selected" : ""}`}>
+            {/* <h2>{isSelected}</h2> */}
             <div className="coreInfoContainer">
                 <div className="containerInfo">
                     <h2>Servicio</h2>
@@ -268,9 +271,10 @@ function Servicio({ nombre, precio, addServiceEvent }) {
                 </div>
                 <div className="containerInfo">
                     <h2>Profesional</h2>
-                    <h3>${precio}</h3>
+                    <h3>{profesional}</h3>
                 </div>
             </div>
+            <button className="buttonAdd" onClick={() => addServiceEvent({ nombre, precio, isSelected })}>{isSelected ? "Quitar" : "Agregar"}</button>
         </li>
     )
 }
@@ -280,7 +284,7 @@ function ServicioSelected({ nombre, precio, deleteServiceEvent }) {
         <li className="serviceItemSelected">
             <div className="infoItemSelected">
                 <h2>{nombre}</h2>
-                <h3>${precio}</h3>
+                <h3>{precio}</h3>
             </div>
             <img src={deleteIcon} alt="delete icon" onClick={deleteServiceEvent} />
         </li>

@@ -24,15 +24,15 @@ body {
   border-radius: 12px; /* Bordes redondeados */
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   margin-bottom: 40px; /* Espaciado inferior entre tarjetas */
+  padding-bottom: 10px;
 }
 
 /* Title */
 .noticia-card h3 {
-  font-family: 'Abril Fatface', cursive; /* Fuente del título */
   padding: 30px;
   text-align: center; /* Alineación del texto al centro */
-  background-color: #bda99b; /* Fondo del título */
-  font-size: 3.5rem;
+  background-color: #00584A; /* Fondo del título */
+  font-size: clamp(2.8rem, 2.5vw, 4rem); /* Tamaño del título */
   color: #EDDED2; /* Color del texto del título */
   margin: 0;
   border-top-left-radius: 12px; /* Bordes redondeados en la esquina superior izquierda */
@@ -49,10 +49,10 @@ body {
 }
 
 .noticia-contenido p {
-  font-family: 'Abril Fatface', cursive; /* Fuente del contenido */
-  color: #8b7c72; /* Color del texto */
+  color: #00584A; /* Color del texto */
   flex: 1;
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 1.3vw, 2rem); /* Tamaño del título */
+
   line-height: 1.5;
   margin-right: 25px; /* Espaciado derecho entre el texto y la imagen */
   min-width: 0; /* Permite ajuste del texto sin desbordamiento */
@@ -75,7 +75,7 @@ body {
 }
 
 .noticia-actions button {
-  background-color: #948071; /* Fondo del botón */
+  background-color: #00584A; /* Fondo del botón */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -86,7 +86,7 @@ body {
 }
 
 .noticia-actions button:hover {
-  background-color: #8b7c72; /* Color más oscuro al pasar el ratón */
+  background-color: #005849b4; /* Color más oscuro al pasar el ratón */
 }
 
 /* Comments Container */
@@ -104,24 +104,24 @@ body {
 /* Title for Comments */
 .h2-comentarios {
   padding-left: 20px;
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 1.3vw, 2rem); /* Tamaño del título */
+
   font-weight: 600;
-  color: #807269; /* Color del título de comentarios */
+  color: #00584A; /* Color del título de comentarios */
 }
 
 /* Individual Comments */
 .comentario {
   display: flex;
+  gap:15px;
   align-items: flex-start; /* Alineación del contenido al inicio del contenedor */
   margin-bottom: 15px; /* Espaciado inferior entre comentarios */
 }
 
 .comentario img {
-  width: 40px;
-  height: 40px;
-  background-color: #f9d6cc; /* Fondo de la imagen del comentario */
+  width: 3.3vw;
+  min-width: 30px;
   border-radius: 50%; /* Bordes redondeados de la imagen */
-  margin-right: 15px; /* Espaciado derecho entre la imagen y el texto */
 }
 
 .comentario-texto {
@@ -129,15 +129,16 @@ body {
 }
 
 .comentario-texto h5 {
-  font-size: 1.1rem;
+  font-size: clamp(13px, 1.1vw, 16px);
   font-weight: 600;
   margin: 0;
-  color: #7e7067; /* Color del título del comentario */
+  color: #00584A; /* Color del título del comentario */
 }
 
 .comentario-texto p {
-  font-size: 0.9rem;
-  color: #88796f; /* Color del texto del comentario */
+  font-size: clamp(12px, 1vw, 14px);
+
+  color: #00584A; /* Color del texto del comentario */
   margin: 2px 0 0; /* Espaciado superior entre el título y el texto */
 }
 
@@ -147,14 +148,14 @@ body {
 }
 
 .comentarios-container::-webkit-scrollbar-track {
-  background-color: #ddcec2; /* Color de la pista de desplazamiento */
+  background-color: #948071; /* Color de la pista de desplazamiento */
   border-radius: 10px; /* Bordes redondeados para la pista */
 }
 
 .comentarios-container::-webkit-scrollbar-thumb {
   width: 8px; /* Ancho del pulgar */
   height: 8px; /* Alto del pulgar */
-  background-color: #ac9583; /* Color del pulgar */
+  background-color: #00584A; /* Color del pulgar */
   border-radius: 10px; /* Bordes redondeados del pulgar */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra sutil del pulgar */
 }
@@ -168,18 +169,18 @@ body {
   display: flex;
   align-items: center;
   margin-top: 10px;
-  padding: 0 50px; /* Espaciado horizontal */
+  padding: 0 30px; /* Espaciado horizontal */
 }
 
 .comentario-input input {
   background-color: #EDDED2; /* Fondo del campo de entrada */
   flex-grow: 1; /* Ocupa el espacio disponible */
-  padding: 5px;
+  padding: 8px;
   border-radius: 8px; /* Bordes redondeados del campo */
-  border: 1px solid #666; /* Borde del campo */
+  border: 1px solid #00584A; /* Borde del campo */
   outline: none;
-  font-size: 1rem;
-  color: #666; /* Color del texto */
+  font-size: clamp(13px, 1.1vw, 15px);
+  color: #00584A; /* Color del texto */
 }
 
 .comentario-input button {
@@ -234,23 +235,23 @@ body {
 }
 
 .modal-content h1 {
-  font-family: 'Abril Fatface', cursive; /* Fuente del título del modal */
-  font-size: 2rem;
+  font-size: clamp(15px, 1.5vw, 20px);
   margin-bottom: 20px;
   text-align: center; /* Alineación del texto al centro */
-  color: #807269; /* Color del título del modal */
+  color: #00584A; /* Color del título del modal */
 }
 
 /* Input Styles in Modal */
 .modal-content input,
 .modal-content textarea {
   width: 100%;
-  padding: 12px; /* Espaciado interno */
+  padding:9px; /* Espaciado interno */
   margin-bottom: 15px; /* Espaciado inferior */
-  border: 1px solid #ccc; /* Borde del campo */
-  background-color: #fcebe6; /* Fondo suave */
+  border: 1px solid #005849a4; /* Borde del campo */
+  background-color: transparent; /* Fondo suave */
   border-radius: 8px; /* Bordes redondeados */
-  font-size: 1rem;
+  font-size: clamp(13px, 1.3vw, 1.7px);
+  font-family: 'Poppins', sans-serif;
   color: #333; /* Color del texto */
   outline: none;
   transition: border-color 0.3s ease;
@@ -258,33 +259,33 @@ body {
 
 .modal-content input:focus,
 .modal-content textarea:focus {
-  border-color: #9e837c; /* Color del borde al enfocar */
-  background-color: #fcebe6; /* Fondo del campo al enfocar */
+  border-color: #005849; /* Color del borde al enfocar */
 }
 
 /* Close Button */
 .close-btn {
   position: absolute;
   top: 10px;
+  
   right: 10px;
-  background-color: #f0f0f0; /* Fondo del botón de cerrar */
-  color: #333;
+  background-color: #333; /* Fondo del botón de cerrar */
+  color: #fcebe6;
   border: none;
-  font-size: 10px;
+  font-size: clamp(13px, 1.3vw, 1.7px);
+  font-family: 'Poppins', sans-serif;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.1s ease;
 }
 
 .close-btn:hover {
-  background-color: #9e837c; /* Fondo al pasar el ratón */
   color: #fff;
-  transform: scale(1.1); /* Efecto de zoom */
+  transform: scale(1.02); /* Efecto de zoom */
 }
 
 /* Modal Action Buttons */
@@ -295,25 +296,29 @@ body {
 }
 
 .button {
-  background-color: #807269; /* Fondo del botón */
+  background-color: #00584A; /* Fondo del botón */
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 8px; /* Bordes redondeados */
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .button:hover {
-  background-color: #6d6159; /* Fondo al pasar el ratón */
+  background-color: #005849b4; /* Fondo al pasar el ratón */
   transform: scale(1.05); /* Efecto de zoom */
 }
 
 /* Button for New Item */
 .botonNuevo {
   margin-left: auto;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-family: 'Poppins', sans-serif;
   margin-right: auto;
-  background-color: #807269; /* Fondo del botón */
+  background-color: #00584A; /* Fondo del botón */
   margin-bottom: 20px; /* Espaciado inferior */
   color: white;
   border: none;
@@ -324,7 +329,7 @@ body {
 }
 
 .botonNuevo:hover {
-  background-color: #6d6159; /* Fondo al pasar el ratón */
+  background-color: #005849b4; /* Fondo al pasar el ratón */
   transform: scale(1.05); /* Efecto de zoom */
 }
 
@@ -337,13 +342,15 @@ body {
 
 /* Custom File Upload Button */
 .custom-file-upload {
-  padding: 10px;
+  padding: 8px;
   border-radius: 5px; /* Bordes redondeados */
-  background: #9e837c; /* Fondo del botón */
+  background: #005849e1; /* Fondo del botón */
   color: white;
   cursor: pointer;
   text-align: center; /* Texto centrado */
   margin-bottom: 20px; /* Espaciado inferior */
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-family: 'Poppins', sans-serif;
 }
 
 .custom-file-upload input {

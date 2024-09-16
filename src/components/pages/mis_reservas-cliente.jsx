@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { ReservasAdmin } from '../turnos/HistorialReservas-admin';
+import { MisReservas } from '../MisReservas-cliente';
 
 
-createRoot(document.getElementById('root')).render(<ReservasAdmin />);
+createRoot(document.getElementById('root')).render(<MisReservas />);

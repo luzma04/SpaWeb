@@ -212,3 +212,15 @@ nav> ul> li#itemLogin:hover> a{
     white-space: nowrap;
 }
 /* #endregion */
+
+.swal2-popup *{
+    font-size: clamp(14px, 1.1vw, 17px) !important;
+
+}
+
+.swal2-popup #swal2-title{
+    font-size: clamp(16px, 1.6vw, 22px) !important;
+}
+.swal2-popup .swal2-icon-content{
+    font-size: clamp(18px, 1.6vw, 25px) !important;
+}

@@ -6,11 +6,14 @@ import FormularioNoticias from './FormularioNoticias';
 import Modal from './Modal';
 import '../../css/noticias.css';
 
+import useUsuario from '../../hooks/useUsuario';
+
 const Noticias = () => {
+  const usuario = useUsuario();
   const [noticias, setNoticias] = useState([]);
   const [editNoticia, setEditNoticia] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  
   const obtenerNoticias = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'noticias'));
@@ -47,10 +50,14 @@ const Noticias = () => {
     setIsModalOpen(false);
     setEditNoticia(null);
   };
+  console.log(usuario)
 
   return (
     <div className='contenedorPadre-noticias'>
+      {usuario && usuario.rangoUser == 'Administrador' && (
       <button className='botonNuevo' onClick={agregarNoticia}>Agregar Noticia</button>
+      )}
+
       {noticias.length > 0 ? (
         noticias.map(noticia => (
           <Noticia
@@ -58,6 +65,7 @@ const Noticias = () => {
             noticia={noticia}
             onDelete={eliminarNoticia}
             onEdit={editarNoticia}
+            user = {usuario}
           />
         ))
       ) : (

@@ -1,0 +1,99 @@
+#root {
+    height: 88vh;
+    background-color: #EDDED2; /* Fondo */
+    padding: 20px;
+}
+
+.empleo-admin {
+    /* background-color: #aa7e7e; */
+    
+    /* max-width: 900px; */
+}
+
+#root > h1 {
+    color: #00584A;
+    font-size: clamp(2rem, 2.1vw, 3rem);
+    margin-bottom: 20px;
+    /* text-align: center; */
+}
+
+#root > form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    align-items: center;
+    border:1px solid #33333386;
+}
+#root > form > .inputsWrapper{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+#root > form  input {
+    width: 23%;
+    padding: 8px;
+    outline: none;
+    border-radius: 8px;
+    border: #00584A 2px solid;
+    font-family: "Poppins";
+    font-size: clamp(10px, 1vw, 15px);
+    background-color: transparent;
+}
+
+ul.wrapperListServices{
+    list-style: none;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+ul.wrapperListServices > li {
+    border: #00584A 2px solid;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+ul.wrapperListServices > li > div.coreInfoContainer{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+ul.wrapperListServices > li > div.coreInfoContainer > div.containerInfo{
+    width: 23%;
+    color: #005849e1;
+    font-size: clamp(10px, .9vw, 15px);
+
+}
+
+ul.wrapperListServices > li > button {
+    background-color: #00584A;
+    color: #EDDED2;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-size: clamp(10px, 1vw, 15px);
+    cursor: pointer;
+    outline: none;
+    border-color: transparent;
+    font-family: "Poppins";
+    height: fit-content;
+
+}
+#buttonSubmitServicio{
+    background-color: #00584A;
+    color: #EDDED2;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: clamp(10px, 1vw, 15px);
+    cursor: pointer;
+    outline: none;
+    border-color: transparent;
+    font-family: "Poppins";
+    height: fit-content;
+    white-space: nowrap;
+}

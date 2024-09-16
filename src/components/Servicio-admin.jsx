@@ -2,6 +2,8 @@ import { db } from '../credentials';
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, doc, addDoc,deleteDoc } from 'firebase/firestore'; // Para obtener y agregar datos
 import Swal from 'sweetalert2';
+import 'css/servicio-admin.css';
+
 
 export function ServicioAdmin() {
     const [servicios, setServicios] = useState([]);
@@ -75,39 +77,56 @@ export function ServicioAdmin() {
         <>
             <h1>Administración de Servicios</h1>
             <form onSubmit={agregarServicio}>
-                <input
-                    type="text"
-                    placeholder="Profesional"
-                    value={nuevoServicio.profesional}
-                    onChange={(e) => setNuevoServicio({ ...nuevoServicio, profesional: e.target.value })}
-                    required
-                />
-                <input
-                    type="number"
-                    placeholder="Precio"
-                    value={nuevoServicio.precio}
-                    onChange={(e) => setNuevoServicio({ ...nuevoServicio, precio: e.target.value })}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Nombre del servicio"
-                    value={nuevoServicio.nombre}
-                    onChange={(e) => setNuevoServicio({ ...nuevoServicio, nombre: e.target.value })}
-                    required
-                />
-                <button type="submit">Agregar Servicio</button>
-            </form>
+                <div className="inputsWrapper">
+                    <input
+                        type="text"
+                        placeholder="Nombre del servicio"
+                        value={nuevoServicio.nombre}
+                        onChange={(e) => setNuevoServicio({ ...nuevoServicio, nombre: e.target.value })}
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Profesional"
+                        value={nuevoServicio.profesional}
+                        onChange={(e) => setNuevoServicio({ ...nuevoServicio, profesional: e.target.value })}
+                        required
+                    />
+                    <input
+                        type="number"
+                        placeholder="Precio"
+                        value={nuevoServicio.precio}
+                        onChange={(e) => setNuevoServicio({ ...nuevoServicio, precio: e.target.value })}
+                        required
+                    />
 
-            <ul>
+                </div>
+                
+                <button id="buttonSubmitServicio" type="submit">Agregar Servicio</button>
+            </form>
+            
+
+            <ul className="wrapperListServices">
                 {servicios.map(servicio => (
-                    <li key={servicio.id}>
-                        <h3>{servicio.nombre}</h3>
-                        <p>Profesional: {servicio.profesional}</p>
-                        <p>Precio: {servicio.precio}</p>
-                        <button onClick={() => eliminarServicio(servicio.id)}>Eliminar</button>
-                    </li>
+                <li key={servicio.id}>
+                    <div className="coreInfoContainer">
+                        <div className="containerInfo">
+                            <h2>Servicio</h2>
+                            <h3>{servicio.nombre}</h3>
+                        </div>
+                        <div className="containerInfo">
+                            <h2>Profesional</h2>
+                            <h3>{servicio.profesional}</h3>
+                        </div>
+                        <div className="containerInfo">
+                            <h2>Precio</h2>
+                            <h3>${servicio.precio}</h3>
+                        </div>
+                    </div>
+                    <button onClick={() => eliminarServicio(servicio.id)}>Eliminar</button>
+                </li>
                 ))}
+                
             </ul>
         </>
     );

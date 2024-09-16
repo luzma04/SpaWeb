@@ -1,8 +1,8 @@
-import { db, storage } from '../../credentials'; // Asegúrate de que estos importes son correctos
+import { db, storage } from '../credentials'; // Asegúrate de que estos importes son correctos
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { ref, getDownloadURL } from 'firebase/storage';
-import 'css/empleo-admin.css';
+import 'css/historialReservas-admin.css';
 
 export function ReservasAdmin() {
     const [reservas, setReservas] = useState([]);
@@ -46,12 +46,14 @@ export function ReservasAdmin() {
                                 <td>{reserva.fecha}</td>
                                 <td>{reserva.horario}</td>
                                 <td>
-                                {reserva.services.map((servicio) => (
-                                    <li key={servicio.nombre}>{servicio.nombre} - ${servicio.precio} </li>
-                                ))}
+                                    <ul>
+                                        {reserva.services.map((servicio) => (
+                                            <li key={servicio.nombre}>{servicio.nombre} - ${servicio.precio} </li>
+                                        ))}
+                                    </ul>
                                 </td>
                                 
-                                <td>{reserva.costoTotal}</td>
+                                <td>${reserva.costoTotal}</td>
 
                             </tr>
                         ))
