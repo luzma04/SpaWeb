@@ -3,6 +3,7 @@ import 'css/index.css';
 import fotoServicio1 from '../../assets/photos/fotoServicios2.svg';
 import fotoServicio2 from '../../assets/photos/fotoServicios3.svg';
 import fotoServicio3 from '../../assets/photos/fotoServicios4.svg';
+import fotoServicio4 from '../../assets/photos/fotoServicios5.jpeg';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -58,22 +59,22 @@ export function SliderCard(){
         </div>
     );
 }
-//ACA VA A TRAER DE LA COLLECTION DE SERVICIOS DE FIREBASE
+
 const data = [
     {
         img:fotoServicio1,
-        nombre: 'Corte de pelo'
+        nombre: 'Tratamientos corporales'
     },
     {
         img:fotoServicio2,
-        nombre: 'Corte de uñas'
+        nombre: 'Masajes'
     },
     {
-        img:fotoServicio3,
-        nombre: 'Baño'
+        img:fotoServicio4,
+        nombre: 'Belleza'
     },
     {
-        img: fotoServicio1,
-        nombre: 'Lavado de auto'
+        img: fotoServicio3,
+        nombre: 'Tratamientos faciales'
     }
 ]
