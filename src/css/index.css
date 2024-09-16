@@ -236,3 +236,13 @@ body {
     align-items: center;
     justify-content: center;
 }
+.seccion-video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EDDED2;
+    padding: 2rem;
+}
+.video-frame{
+    border-radius: 5rem;
+}

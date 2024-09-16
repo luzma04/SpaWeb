@@ -11,20 +11,22 @@ export function Footer() {
             <div className="footer-section">
                 <img src={logo} alt="Logo" className="footer-logo" />
                 <h2 className='footer-section-titulo'>Sentirse Bien</h2>
-                <p>Todos los derechos reservados 2024</p>
+                <p>Todos los derechos reservados 2024.</p>
+                <p>Desarrolado por: Rodríguez Lautaro, Rossi Valentino, Roldán Luz</p>
             </div>
             <div className="footer-section">
                 <h3>Seguinos</h3>
                 <div className="social-icons">
-                <a href="#"><img src={iconoFacebook}/></a>
-                <a href="#"><img src={iconoTiktok}/></a>
-                <a href="#"><img src={iconoInsta}/></a>
+                <a href="https://www.facebook.com/"><img src={iconoFacebook}/></a>
+                <a href="https://www.tiktok.com/es/"><img src={iconoTiktok}/></a>
+                <a href="https://www.instagram.com/"><img src={iconoInsta}/></a>
                 </div>
                 <h3>Contactanos</h3>
                 <div className='footer-section-mail'>
                     <img src={iconoMail}/>
                     <p>sentirsebienspa@gmail.com</p>
                 </div>
+                <p className='footer-section-mail'>Tel: +5493624222333</p>
             </div>
             <div className="footer-section">
                 <ul className="footer-links">
