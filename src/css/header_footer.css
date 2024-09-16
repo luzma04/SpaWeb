@@ -19,76 +19,94 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/*HEADER*/
-.logo-title {
-    display: flex;
-    align-items: center;
-}
+/*#region HEADER*/
 
-.logo {
-    height: 5rem;
-    padding-left: 1.5rem;
-}
-
-header>a {
+header>a.wrapperLinkLogo {
     text-decoration: none;
 }
 
 header {
     background-color: #EDDED2;
-    padding: 2rem 0;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 12vh;
+    min-height: 70px;
+    max-height: 90px;
 }
-
-header h1 {
+*::-webkit-scrollbar{
+    width: 4px;
+    border-radius: 5px;
+  }
+*::-webkit-scrollbar-thumb{
+    background: #24252590;
+    border-radius: 1rem;
+  }
+  
+.wrapperLinkLogo > .logo-title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.wrapperLinkLogo > .logo-title > h1 {
     font-family: 'Golfmind', sans-serif;
-    padding-left: 20px;
     color: #00584A;
-    font-size: 36px;
+    font-size: clamp(25px, 2.8vw, 40px);
     font-weight: 400;
 }
+.wrapperLinkLogo > .logo-title > .logo{
+    width: 5vw;
+    max-width: 100px;
+    min-width: 60px;
+}
 
-nav ul {
-    list-style-type: none;
+nav> ul {
+    list-style: none;
     display: flex;
     justify-content: flex-end;
-    padding-right: 3rem;
+    align-items: center;
+    gap: 10px;
+}
+nav> ul> li{
+    padding: 5px 15px;
+    border-radius: 30px;
+
 }
 
-nav ul li {
-    margin: 0 1rem;
-
-}
-
-nav ul li a {
+nav> ul> li> a {
     text-decoration: none;
     color: #00584A;
     font-weight: 400;
-    font-size: 1.8rem;
-    padding: 0.5rem 2rem;
+    font-size: clamp(13px, 1.5vw, 18px);
+    
 }
-
-nav ul li:last-child a {
-    background-color: #F5C6B5;
-    color: #00584A;
-    border-radius: 30px;
-    padding: 5px 20px;
+nav> ul> li:hover{
+    background-color: #00584A;
     transition: background-color 0.3s, color 0.3s;
+}
+nav> ul> li:hover > a{
+    color: #EDDED2;
+}
+nav> ul> li#itemLogin {
+    background-color: #F5C6B5;
+
+}
+nav> ul> li#itemLogin >a {
+    color: #00584A;
     font-weight: 700;
 }
-
-nav ul li a:last-child:hover {
+nav> ul> li#itemLogin:hover{
     background-color: #00584A;
-    border-radius: 30px;
-    padding: 5px 20px;
-    color: #EDDED2;
     transition: background-color 0.3s, color 0.3s;
-}
+} 
+nav> ul> li#itemLogin:hover> a{
+    color: #F5C6B5;
+} 
+/* #endregion */
 
-/*FOOTER*/
+/*#region FOOTER*/
 .footer {
     background-color: #00584A;
     display: flex;
@@ -149,3 +167,48 @@ nav ul li a:last-child:hover {
     font-weight: 400;
     color: #F5C6B5;
 }
+/*#endregion  */
+
+/* #region menu Profile */
+
+
+.user-profile {
+    position: relative;
+    cursor: pointer;
+}
+.user-menu {
+    position: absolute;
+    background-color: #fff;
+    /* border: 2px solid #fff; */
+    border-radius: 5px;
+    padding: 15px;
+    list-style-type: none;
+    top: 100%; /* Ajusta según sea necesario */
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.user-menu > li > a {
+    text-decoration: none;
+    color: #00584A;
+    font-weight: 400;
+    font-size: clamp(13px, 1.3vw, 16px);
+    white-space: nowrap;
+
+}
+.user-menu > li > a:hover{
+    text-decoration: underline;
+}
+#buttonLogout{
+    background-color: #00584A;
+    color: #EDDED2;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+/* #endregion */

@@ -7,11 +7,12 @@
 
 .wrapper {
     display: flex;
-    flex: 1 0 auto;
+    /* flex: 1 0 auto; */
     /* Permite que el wrapper ocupe el espacio restante */
-    overflow-y: auto;
+    /* overflow-y: auto; */
     justify-content: space-between;
     gap: 3rem;
+    height: 88vh;
     background-color: #EDDED2;
     /* padding: 20px 0; */
 
@@ -24,7 +25,8 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-
+    height: 100%;
+    overflow-y: auto;
 }
 
 .wrapper>div>ul {
@@ -145,7 +147,8 @@
 
 .calendarioWrapper,
 .horarioWrapper {
-    width: 70%;
+    width: 100%;
+    max-width: 340px;
     margin-top: 1rem;
 }
 
@@ -178,6 +181,11 @@
     font-family: "Poppins";
 
 }
+#buttonSubmitForm:disabled{
+    opacity: 0.5;
+    cursor: unset;
+    pointer-events: none;
+}
 
 /* #endregion */
 
@@ -190,16 +198,26 @@
     display: flex;
     gap: 3rem;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .wrapper>.listServiciosContainer>ul>li.serviceItem {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #00584A;
+    color: #EDDED2;
     font-size: clamp(10px, 1vw, 14px);
     cursor: pointer;
-    width: 12vw;
+    width: 80%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #00584A;
+}
+.wrapper>.listServiciosContainer>ul>li.serviceItem>.coreInfoContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
 }
 
 .wrapper>.listServiciosContainer>ul>li.serviceItem>.backgroundContainer {

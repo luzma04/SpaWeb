@@ -1,0 +1,16 @@
+import React from 'react';
+import '../../css/noticias.css';
+
+const Modal = ({ closeModal, children }) => {
+  return (
+    <div className="modal-overlay" onClick={closeModal}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <h1>Modal de Noticia</h1>
+        <span className="close-btn" onClick={closeModal}>&times;</span>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default Modal;

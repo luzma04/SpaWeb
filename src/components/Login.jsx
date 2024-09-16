@@ -1,20 +1,25 @@
 import 'css/login.css';
 import userIcon from '../assets/icons/iconoUser.svg';
 import {useForm} from 'react-hook-form';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import appFirebase from '../credentials';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
+
+import appFirebase, { db } from '../credentials';
+import useUsuario from '../hooks/useUsuario';
 
 export function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const auth = getAuth(appFirebase);
+    const usuario = useUsuario();
 
+    
+
+    // console.log(usuario);
     const enviar = async (data) => {
-        console.log(data.email)
         try {
             const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
-            console.log('User signed in:', userCredential.user);
+            // console.log('User signed in:', userCredential.user);
         } catch (error) {
-            console.error('Error signing in:', error.message);//crear alert
+            // console.error('Error signing in:', error.message);//crear alert
         }
     }
     return (

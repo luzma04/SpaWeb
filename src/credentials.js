@@ -1,7 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, doc,getDoc } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,3 +26,33 @@ const appFirebase = initializeApp(firebaseConfig);
 export default appFirebase;
 export const db = getFirestore(appFirebase);
 export const storage = getStorage(appFirebase);
+
+
+async function getRango(uid){
+  const docRef = doc(db, `usuarios/${uid}`);
+  const docCifrada = await getDoc(docRef);
+  const finalInfo = docCifrada.data().rango;
+  return finalInfo;
+}
+
+
+export const onChangeUser = (setUsuario) =>{
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if(user){
+        getRango(user.uid).then((rango)=>{
+          const userData = {
+            idUser : user.uid,
+            emailUser: user.email,
+            rangoUser: rango
+          }
+          setUsuario(userData);   
+        })
+    }else{
+      setUsuario(null);    }
+  })
+}
+
+
+
+

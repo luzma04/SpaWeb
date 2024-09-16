@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // Componentes
 import { Header } from "../core/Header.jsx";
 import { DateCalendarMultipleSelect } from "./Calendar.jsx";
 import { HorarioSelect } from "./HorarioSelect.jsx";
 
 // Firebase imports
-import { collection, addDoc, getDocs, where, query } from 'firebase/firestore';
-import { db } from '../../credentials.js';
+import { collection, addDoc, getDocs, where, query,doc,getDoc } from 'firebase/firestore';
+import appFirebase,{ db } from '../../credentials.js';
+import { getAuth } from "firebase/auth";
+
+
 
 // Imports de terceros
 import Swal from 'sweetalert2'
@@ -18,14 +21,9 @@ import deleteIcon from "icons/delete_icon.png";
 // Import the css files
 import "css/turnos.css";
 
-const servicios = [
-    { nombre: "Masajes con piedras calientes", precio: 10000, url: "https://www.google.com" },
-    { nombre: "Sauna Seco", precio: 20000, url: "https://www.google.com" },
-    { nombre: "Depilación facial", precio: 30000, url: "https://www.google.com" },
-    { nombre: "Anti-stress", precio: 15000, url: "https://www.google.com" },
-    { nombre: "Circulatorios", precio: 25000, url: "https://www.google.com" },
-    { nombre: "Limpieza profunda + Hidratación", precio: 35000, url: "https://www.google.com" }
-];
+
+
+
 
 let horariosOptions = [
     { value: '08:00', label: '08:00' },
@@ -46,34 +44,53 @@ const fetchReservasByFecha = async (fecha) => {
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs.map(doc => doc.data());
 };
+const fetchServicios = async () => {
+    const serviciosRef = collection(db, "servicios");
+    const querySnapshot = await getDocs(serviciosRef);
+    return querySnapshot.docs.map(doc => doc.data());
+};
+
+
 
 
 export function App() {
-    const [services, setServices] = useState([]);
+    // Verificar si hay un usuario logueado
+    const auth = getAuth(appFirebase);
+    const user = auth.currentUser;
+    const [servicios, setServicios] = useState([]); // Manejar los servicios
+    const [services, setServices] = useState([]); // Manejar los servicios seleccionados
+    
     const [horariosDisponibles, setHorariosDisponibles] = useState(horariosOptions);
-    const [clearHorario, setClearHorario] = useState(false); // Estado para limpiar el valor del horario
+    const [horarioSeleccionado, setHorarioSeleccionado] = useState(null); // Manejar el horario seleccionado
+    const [fechaSeleccionada, setFechaSeleccionada] = useState(null); // Manejar la fecha seleccionada
+    const [clearHorario, setClearHorario] = useState(false);
 
-    // Función que se ejecuta cuando cambia la fecha en el calendario
+    useEffect(() => {
+        const getServicios = async () => {
+            const serviciosData = await fetchServicios();
+            setServicios(serviciosData);
+        };
+    
+        getServicios();
+    }, []);
+
     const handleDateChange = async (fecha) => {
+        setHorarioSeleccionado(null);
+        setClearHorario(true);
+        setTimeout(() => setClearHorario(false), 100);
         const reservas = await fetchReservasByFecha(fecha);
         const horariosReservados = reservas.map(reserva => reserva.horario);
 
-        // Deshabilitar horarios ocupados
         const updatedHorariosOptions = horariosOptions.map((option) => ({
             ...option,
             isDisabled: horariosReservados.includes(option.value),
         }));
 
         setHorariosDisponibles(updatedHorariosOptions);
-
-        // Limpia la selección de horario
-        setClearHorario(true); // Marca que se debe limpiar el horario
-        setTimeout(() => setClearHorario(false), 100); // Reinicia el estado para futuras limpiezas
+        setFechaSeleccionada(fecha);  // Actualizar la fecha seleccionada
     };
 
-    // Agregar o quitar un servicio de la lista de servicios seleccionados
     const addService = (service) => {
-        console.log(service);
         const serviceExists = services.some((s) => s.nombre === service.nombre);
         if (serviceExists) {
             const updatedServices = services.filter((s) => s.nombre !== service.nombre);
@@ -83,19 +100,13 @@ export function App() {
         }
     }
 
-    // Calcular el costo total de los servicios seleccionados
-    const totalCost = services.reduce((acc, service) => acc + service.precio, 0);
+    const totalCost = services.reduce((acc, service) => acc + parseInt(service.precio), 0);
 
-    // Eliminar un servicio de la lista de servicios seleccionados
     const deleteService = (serviceKey) => {
-        let newServices = [...services];
-        const serviceIndex = newServices.findIndex((s) => s.nombre === serviceKey);
-        newServices.splice(serviceIndex, 1);
+        const newServices = services.filter(s => s.nombre !== serviceKey);
         setServices(newServices);
     }
 
-
-    // Función para mostrar el modal de cargando
     const showLoading = () => {
         Swal.fire({
             title: 'Reservando...',
@@ -103,54 +114,71 @@ export function App() {
             allowOutsideClick: false,
             showConfirmButton: false,
             didOpen: () => {
-                Swal.showLoading(); // Muestra el ícono de carga
+                Swal.showLoading();
             }
         });
     }
 
-
-
-    // Función para enviar la reserva
     const enviar = async (event) => {
-        event.preventDefault(); // Previene el comportamiento por defecto del formulario
+        event.preventDefault();
+        if (!user) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Primero debes registrarte o iniciar sesión',
+                icon: 'error',
+                confirmButtonText: 'Cerrar',
+            });
+            return;
+        }
 
-        // Obtener los valores de horario y calendario
-        const horario = document.getElementById('horarioInputID').value;
-        const calendario = document.getElementById('calendarioInputID').value;
+        if (!horarioSeleccionado || !fechaSeleccionada || services.length === 0) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor selecciona todos los campos',
+                icon: 'error',
+                confirmButtonText: 'Cerrar',
+            });
+            return;
+        }
 
         try {
             showLoading();
+            // Buscar el usuario en la colección "usuarios" por su UID
+            const userDocRef = doc(db, "usuarios", user.uid);
+            const userDocSnap = await getDoc(userDocRef);
+
+            // Obtener el campo "nombreCompleto" del documento del usuario
+            const usuarioFound = userDocSnap.data();
             const solicitudesRef = collection(db, "reservasServicios");
 
             const data = {
-                horario: horario,
-                fecha: calendario,
+                horario: horarioSeleccionado,
+                fecha: fechaSeleccionada,
                 services: services,
                 costoTotal: totalCost,
+                cliente: {
+                    uid: user.uid, // ID del usuario
+                    email: usuarioFound.email, // Email del usuario
+                    nombreCompleto: usuarioFound.nombreCompleto // Nombre del usuario, si está disponible
+                }
             };
+            console.log(data)
 
             await addDoc(solicitudesRef, data);
-
-            // Cierra el modal de "loading"
             Swal.close();
 
-            // Muestra un mensaje de éxito o realiza alguna acción tras el envío
             Swal.fire({
                 title: 'Enviado!',
                 text: 'Tu reserva ha sido enviada con éxito',
                 icon: 'success',
                 confirmButtonText: 'Cerrar',
                 allowOutsideClick: false,
-            })
-
+            });
 
         } catch (error) {
             console.error("Error al enviar la reserva: ", error);
-
-            // Cierra el modal de "loading" en caso de error
             Swal.close();
 
-            // Muestra un mensaje de error
             Swal.fire({
                 title: 'Error',
                 text: 'Ocurrió un error al enviar tu reserva. Intenta nuevamente.',
@@ -159,11 +187,8 @@ export function App() {
             });
         }
     };
-
-    const horario = document.getElementById('horarioInputID');
-    const calendario = document.getElementById('calendarioInputID');
-
-    const isFormComplete = services.length > 0 && horario && calendario;
+    
+    const isFormComplete = services.length > 0 && horarioSeleccionado && fechaSeleccionada;
 
     return (
         <>
@@ -173,13 +198,13 @@ export function App() {
                     <h1 className="seccionTittle">Servicios</h1>
                     <ul>
                         {servicios.map(sv =>
-                            <Servicio key={sv.nombre} nombre={sv.nombre} precio={sv.precio} url={sv.url} addServiceEvent={addService} />
+                            <Servicio key={sv.nombre} nombre={sv.nombre} precio={sv.precio} addServiceEvent={addService} />
                         )}
                     </ul>
                 </div>
 
                 <div className="turnosSideManagementContainer">
-                    <form method="post" id="formRequestServicios" onSubmit={enviar}>
+                    <form id="formRequestServicios" onSubmit={enviar}>
                         <h1 className="seccionTittle">Turnos</h1>
                         {services.length > 0 && (
                             <div className="leyendaServiciosSelccionadosWrapper">
@@ -201,18 +226,20 @@ export function App() {
                             )}
                         </ul>
                         <div className="selectHorarioFechaWrapper">
-
                             <div className="leyendaCalendarioWrapper">
-                                <h3>Seleccioná el dia y horario</h3>
+                                <h3>Seleccioná el día y horario</h3>
                             </div>
 
                             <div className="calendarioWrapper">
                                 <DateCalendarMultipleSelect onDateChange={handleDateChange} />
                             </div>
                             <div className="horarioWrapper">
-                                <HorarioSelect options={horariosDisponibles} clearValue={clearHorario} />
+                                <HorarioSelect
+                                    options={horariosDisponibles}
+                                    clearValue={clearHorario}
+                                    onHorarioChange={setHorarioSeleccionado}  // Manejar cambio de horario
+                                />
                             </div>
-
                         </div>
                         <div className="wrapperSubmitForm">
                             <input id="buttonSubmitForm" type="submit" value="Realizar reserva" disabled={!isFormComplete} />
@@ -221,18 +248,28 @@ export function App() {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-function Servicio({ nombre, precio, url, addServiceEvent }) {
+function Servicio({ nombre, precio, addServiceEvent }) {
     return (
-        <li className="serviceItem" onClick={() => addServiceEvent({ nombre, precio, url })}>
-            <div className="backgroundContainer">
+        <li className="serviceItem" onClick={() => addServiceEvent({ nombre, precio })}>
+            {/* <div className="backgroundContainer">
                 <p>{url}</p>
-            </div>
+            </div> */}
             <div className="coreInfoContainer">
-                <h2>{nombre}</h2>
-                <h3>${precio}</h3>
+                <div className="containerInfo">
+                    <h2>Servicio</h2>
+                    <h3>{nombre}</h3>
+                </div>
+                <div className="containerInfo">
+                    <h2>Precio</h2>
+                    <h3>${precio}</h3>
+                </div>
+                <div className="containerInfo">
+                    <h2>Profesional</h2>
+                    <h3>${precio}</h3>
+                </div>
             </div>
         </li>
     )

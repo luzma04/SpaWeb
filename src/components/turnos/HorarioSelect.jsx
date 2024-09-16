@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 
-export function HorarioSelect({ options, clearValue }) {
+export function HorarioSelect({ options, clearValue, onHorarioChange }) {
     const [value, setValue] = useState(null);
 
     // Efecto que escucha cambios en clearValue para limpiar el estado
@@ -11,6 +11,10 @@ export function HorarioSelect({ options, clearValue }) {
         }
     }, [clearValue]);
 
+    const handleChange = (selectedOption) => {
+        onHorarioChange(selectedOption ? selectedOption.value : null);
+        setValue(selectedOption);
+    };
     return (
         <>
             {value && (
@@ -25,7 +29,7 @@ export function HorarioSelect({ options, clearValue }) {
                 isDisabled={false}
                 name="horario"
                 options={options}
-                onChange={setValue}
+                onChange={handleChange}
                 value={value} // Mantén el estado del valor actualizado
                 placeholder="Seleccionar horario"
             />
